@@ -1,29 +1,36 @@
-// Selecionando elementos
 const texto = document.getElementById("texto");
 const btnTrocarTexto = document.getElementById("btnTrocarTexto");
 const btnMudarCor = document.getElementById("btnMudarCor");
-const btnToggle = document.getElementById("btnToggle");
 const btnAdicionar = document.getElementById("btnAdicionar");
 const container = document.getElementById("container");
 
-// Alterar o texto do parágrafo
+const colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+
+
+const btnShow = document.getElementById("btnShow");
+
+let contador = 0;
+
 btnTrocarTexto.addEventListener("click", () => {
-    texto.textContent = "O texto foi modificado!";
+    texto.textContent = `O texto foi modificado ${++contador} vezes`;
 });
 
-// Mudar a cor do parágrafo
 btnMudarCor.addEventListener("click", () => {
-    texto.classList.toggle("destacado"); // Adiciona ou remove a classe
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    texto.style.color = randomColor;
 });
 
-// Esconder/Mostrar o texto
-btnToggle.addEventListener("click", () => {
-    texto.classList.toggle("oculto");
+
+btnShow.addEventListener("click", () => {
+    if(texto.style.display === "none") {
+        texto.style.display = "block";
+    } else {
+        texto.style.display = "none";
+    }
 });
 
-// Adicionar um novo elemento dinamicamente
 btnAdicionar.addEventListener("click", () => {
     let novoParagrafo = document.createElement("p");
-    novoParagrafo.textContent = "Novo elemento adicionado!";
+    novoParagrafo.textContent = `${++contador}° elemento adicionado`;
     container.appendChild(novoParagrafo);
 });

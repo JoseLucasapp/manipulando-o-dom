@@ -7,11 +7,7 @@ body {
 p {
   font-size: 18px;
   color: black;
-}
-
-.destacado {
   font-weight: bold;
-  color: red;
 }
 
 button {
@@ -19,8 +15,4 @@ button {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
-}
-
-.oculto {
-  display: none;
 }
